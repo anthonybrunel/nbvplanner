@@ -27,6 +27,7 @@
 #include <nbvplanner/tree.h>
 #include <nbvplanner/mesh_structure.h>
 
+
 #define SQ(x) ((x)*(x))
 #define SQRT2 0.70711
 
@@ -38,19 +39,19 @@ class RrtTree : public TreeBase<Eigen::Vector4d>
   typedef Eigen::Vector4d StateVec;
 
   RrtTree();
-  RrtTree(mesh::StlMesh * mesh, volumetric_mapping::OctomapManager * manager);
+  RrtTree(mesh::StlMesh * mesh);
   ~RrtTree();
   virtual void setStateFromPoseMsg(const geometry_msgs::PoseWithCovarianceStamped& pose);
   virtual void setStateFromOdometryMsg(const nav_msgs::Odometry& pose);
   virtual void setPeerStateFromPoseMsg(const geometry_msgs::PoseWithCovarianceStamped& pose, int n_peer);
-  virtual void initialize();
-  virtual void iterate(int iterations);
+  virtual void initialize(std::shared_ptr<octomap::OcTree> &ot);
+  virtual void iterate(int iterations, std::shared_ptr<octomap::OcTree> &ot_);
   virtual std::vector<geometry_msgs::Pose> getBestEdge(std::string targetFrame);
   virtual void clear();
   virtual std::vector<geometry_msgs::Pose> getPathBackToPrevious(std::string targetFrame);
   virtual void memorizeBestBranch();
   void publishNode(Node<StateVec> * node);
-  double gain(StateVec state);
+  double gain(StateVec state,std::shared_ptr<octomap::OcTree> &ot);
   std::vector<geometry_msgs::Pose> samplePath(StateVec start, StateVec end,
                                               std::string targetFrame);
  protected:

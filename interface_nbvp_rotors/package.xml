@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
-<package>
-  <name>interface_nbvp_rotors</name>
+<package format="2">
+<name>interface_nbvp_rotors</name>
   <version>0.0.0</version>
   <description>The package that interfaces the nbvplanner with rotors</description>
 
@@ -15,15 +15,18 @@
   <author>Janosch Nikolic</author>
   <author>Markus Achtelik</author>
   
-  <buildtool_depend>catkin</buildtool_depend>
-  <build_depend>nbvplanner</build_depend>
-  <build_depend>trajectory_msgs</build_depend>
-  <build_depend>mav_msgs</build_depend>
-  <build_depend>tf</build_depend>
+<buildtool_depend>catkin</buildtool_depend>
+<buildtool_depend>catkin_simple</buildtool_depend>
+  <depend>nbvplanner</depend>
+  <depend>mav_msgs</depend>
+  <depend>tf</depend>
   
-  <run_depend>nbvplanner</run_depend>
-  <run_depend>trajectory_msgs</run_depend>
-  <run_depend>mav_msgs</run_depend>
-  <run_depend>tf</run_depend>
+
+
+<depend>mav_trajectory_generation</depend>
+<depend>mav_trajectory_generation_ros</depend>
+<depend>trajectory_msgs</depend>
+<depend>cv_bridge</depend>
+<depend>rotors_control</depend>
 
 </package>
