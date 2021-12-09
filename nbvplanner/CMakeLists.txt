@@ -3,6 +3,15 @@ project(nbvplanner)
 
 add_definitions(-std=c++14)
 
+
+find_package(catkin_simple REQUIRED)
+catkin_simple(ALL_DEPS_REQUIRED)
+
+
+catkin_package()
+
+
+
 find_package(catkin REQUIRED COMPONENTS
   roscpp
   geometry_msgs
@@ -17,23 +26,24 @@ find_package(cmake_modules REQUIRED)
 find_package(Eigen REQUIRED)
 find_package(octomap REQUIRED)
 
-add_service_files(
-  FILES
-  nbvp_srv.srv
-)
+#add_service_files(
+#  FILES
+#  nbvp_srv.srv
+#)
 
-generate_messages(
-  DEPENDENCIES
-  geometry_msgs
-  visualization_msgs
-  std_msgs
-)
+#generate_messages(
+#  DEPENDENCIES
+#  geometry_msgs
+#  visualization_msgs
+#  std_msgs
+#)
 
-catkin_package(
-  INCLUDE_DIRS include
-  LIBRARIES nbvPlannerLib
-  CATKIN_DEPENDS message_runtime roscpp geometry_msgs visualization_msgs octomap_world tf kdtree
-)
+#catkin_package(
+#  INCLUDE_DIRS include
+#  LIBRARIES nbvPlannerLib
+#  CATKIN_DEPENDS message_runtime roscpp geometry_msgs visualization_msgs  tf kdtree
+#)
+#octomap_world
 
 include_directories(
   include
@@ -42,11 +52,11 @@ include_directories(
   ${OCTOMAP_INCLUDE_DIRS}
 )
 
-add_library(nbvPlannerLib src/mesh_structure.cpp src/nbvp.cpp src/rrt.cpp src/tree.cpp include/nbvplanner/octomap_utils.h)
- add_dependencies(nbvPlannerLib ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+cs_add_library(nbvPlannerLib src/mesh_structure.cpp src/nbvp.cpp src/rrt.cpp src/tree.cpp include/nbvplanner/octomap_utils.h)
+add_dependencies(nbvPlannerLib ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 add_executable(nbvPlanner src/nbv_planner_node.cpp src/mesh_structure.cpp src/nbvp.cpp src/rrt.cpp src/tree.cpp)
 
- add_dependencies(nbvPlanner ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+add_dependencies(nbvPlanner ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 
 target_link_libraries(nbvPlannerLib
   ${catkin_LIBRARIES}
@@ -56,3 +66,7 @@ target_link_libraries(nbvPlanner
   ${catkin_LIBRARIES}
   ${OCTOMAP_LIBRARIES}
 )
+
+
+cs_install()
+cs_export()
