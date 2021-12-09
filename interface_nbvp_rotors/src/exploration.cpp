@@ -31,10 +31,10 @@
 #include <mav_msgs/conversions.h>
 #include <mav_msgs/default_topics.h>
 #include <nbvplanner/nbvp_srv.h>
-#include "../../../oscar/utils_headers/poly_trajectory_rpg.h"
+#include "flybo_utils/poly_trajectory_rpg.h"
 #include <tf2/utils.h>
 #include <eigen_conversions/eigen_msg.h>
-#include "../../../oscar/utils_headers/plannerlogging.h"
+#include "flybo_utils/plannerlogging.h"
 
 enum State{
     NOTREADY,

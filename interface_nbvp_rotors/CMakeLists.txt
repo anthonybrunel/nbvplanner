@@ -21,7 +21,7 @@ catkin_package(
   CATKIN_DEPENDS trajectory_msgs mav_msgs tf
 )
 
-add_executable(exploration src/exploration.cpp ../../../oscar/utils_headers/poly_trajectory_rpg.h ../../../oscar/utils_headers/plannerlogging.h ../../../oscar/utils_headers/timer.hpp)
+add_executable(exploration src/exploration.cpp)
 target_link_libraries(exploration
   ${catkin_LIBRARIES}
 )

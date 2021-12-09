@@ -28,5 +28,6 @@
 <depend>trajectory_msgs</depend>
 <depend>cv_bridge</depend>
 <depend>rotors_control</depend>
+<depend>flybo_utils</depend>
 
 </package>
