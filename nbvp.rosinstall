@@ -9,4 +9,13 @@
 - git: {local-name: nlopt, uri: 'git@github.com:ethz-asl/nlopt.git'}
 - git: {local-name: yaml_cpp_catkin, uri: 'git@github.com:ethz-asl/yaml_cpp_catkin.git'}
 - git: {local-name: mav_trajectory_generation, uri: 'git@github.com:ethz-asl/mav_trajectory_generation.git'}
+- git: {local-name: rpg_quadrotor_control, uri: 'git@github.com:uzh-rpg/rpg_quadrotor_control.git'}
+- git: {local-name: rpg_quadrotor_common, uri: 'git@github.com:uzh-rpg/rpg_quadrotor_common.git'}
 
+- git: {local-name: minkindr_ros, uri: 'git@github.com:ethz-asl/minkindr_ros.git'}
+- git: {local-name: minkindr, uri: 'git@github.com:ethz-asl/minkindr.git'}
+- git: {local-name: numpy_eigen, uri: 'git@github.com:ethz-asl/numpy_eigen.git'}
+- git: {local-name: gflags_catkin, uri: 'git@github.com:ethz-asl/gflags_catkin.git'}
+
+- git: {local-name: flybo_utils, uri: 'git@github.com:anthonybrunel/flybo_utils.git'}
+- git: {local-name: aeplanner, uri: 'git@github.com:anthonybrunel/aeplanner.git'}	
