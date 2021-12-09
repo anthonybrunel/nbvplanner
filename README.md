@@ -1,3 +1,37 @@
+# FLYBO Fork of NBVP: Receding Horizon Next Best View Planning
+
+This is a fork of the public AEP package that we refactor in order to fit within the FLYBO system.
+This is in particular in order to factorize the common routines shared by autonomous exploration planners to allow for fair, accurate comparative evaluation of planning systems. More info on the project's website www.flybo.org.
+
+## Citation
+
+```
+@inproceedings{bircher2016receding,
+  title={Receding horizon "next-best-view" planner for 3D exploration},
+  author={Bircher, Andreas and Kamel, Mina and Alexis, Kostas and Oleynikova, Helen and Siegwart, Roland},
+  booktitle={2016 IEEE International Conference on Robotics and Automation (ICRA)},
+  pages={1462--1468},
+  year={2016},
+  organization={IEEE}
+}
+```
+
+```
+@inproceedings{Brunel3DV2021,
+  TITLE = {FLYBO: A Unified Benchmark Environment for Autonomous Flying Robots},
+  AUTHOR = {Brunel, Anthony and Bourki, Amine and Strauss, Olivier and Demonceaux, C{\'e}dric},
+  BOOKTITLE = {9th International Conference on 3D Vision},
+  ADDRESS = {Online, United Kingdom},
+  YEAR = {2021}
+}
+```
+
+# FLYBO Installation
+
+Installation instructions are provided in the [FLYBO wiki](https://github.com/anthonybrunel/FLYBO/wiki). Feel free to create an issue if you have any questions or problems related to this package.
+
+# Original ReadMe
+
 # Receding Horizon Next Best View Planning
 
 The next best view planner is a real-time capable exploration path planner. From the current pose it expands a tree to find a next pose that gives a high exploration gain. This gain reflects the exploration of space that is not yet (sufficiently) known. As the vehicle proceeds on the path, the tree is recomputed, taking into account the new information from the sensor.
